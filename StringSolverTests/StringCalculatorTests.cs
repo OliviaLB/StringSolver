@@ -101,7 +101,7 @@ namespace StringSolverTests
         }
 
         [Fact]
-        public void Add_GivenMultipleDeliminatersAddValue_ShouldReturnSum()
+        public void Add_GivenMultipleDelimitersAddValue_ShouldReturnSum()
         {
             // Arrange
             string values = "//;\n1;2";
@@ -115,7 +115,7 @@ namespace StringSolverTests
         }
 
         [Fact]
-        public void Add_GivenUppercaseLetterWithLowercaseDeliminater_ShouldReturnSum()
+        public void Add_GivenUppercaseLetterWithLowercaseDelimiter_ShouldReturnSum()
         {
             // Arrange
             string values = "//Z\n1z2";
@@ -129,7 +129,7 @@ namespace StringSolverTests
         }
 
         [Fact]
-        public void Add_GivenLowercaseLetterWithUppercaseDeliminater_ShouldReturnSum()
+        public void Add_GivenLowercaseLetterWithUppercaseDelimiter_ShouldReturnSum()
         {
             // Arrange
             string values = "//z\n1Z2";

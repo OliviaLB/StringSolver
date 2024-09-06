@@ -27,7 +27,6 @@ namespace Technical
             int total = 0;
             List<int> negatives = [];
 
-
             foreach (var item in numbers.Split(delimiters))
             {
                 // Check if the value is null or empty
