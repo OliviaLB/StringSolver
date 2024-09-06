@@ -44,8 +44,10 @@ namespace Technical
                     {
                         negatives.Add(number);
                     }
-                    else
+                    // Filter out numbers >= 1000
+                    else if (number < 1000)
                     {
+                        // Add valid numbers to total
                         total += number;
                     }
                 }
