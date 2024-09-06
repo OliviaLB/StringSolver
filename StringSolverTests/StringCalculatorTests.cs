@@ -150,7 +150,7 @@ namespace StringSolverTests
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() => StringCalculator.Add(values));
-            exception.Message.ShouldBe("Please end delimter assignment with \n.");
+            exception.Message.ShouldBe("Please end delimter assignment with \\n.");
         }
 
         [Fact]

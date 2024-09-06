@@ -19,11 +19,22 @@ namespace Technical
             // Potential delimiters
             char[] delimiters = { ',', '\n' };
 
+            if (numbers.StartsWith("//"))
+            {
+                delimiters = ProcessDelimiters(ref numbers);
+            }
+
             int total = 0;
 
             foreach (var item in numbers.Split(delimiters))
             {
-                // Try parsing the value into an integer
+                // Check if the value is null or empty
+                if (string.IsNullOrEmpty(item))
+                {
+                    throw new ArgumentException("Value required between delimiters.");
+                }
+
+                // Try parsing the value into an integer.
                 if (int.TryParse(item, out int number))
                 {
                     total += number;
@@ -35,6 +46,32 @@ namespace Technical
             }
 
             return total;
+        }
+
+        private static char[] ProcessDelimiters(ref string numbers)
+        {
+            // Remove "//" from start of string.
+            numbers = numbers.Substring(2);
+            var i = 0;
+            List<char> newDelimiters = [];
+
+            // Loop through until \n or the end of the string is encountered.
+            while (i < numbers.Length && numbers[i] != '\n')
+            {
+                char character = char.ToLower(numbers[i]);
+                newDelimiters.Add(character);
+                i++;
+            }
+
+            // If no newline was encountered, throw an exception
+            if (i == numbers.Length)
+            {
+                throw new ArgumentException("Please end delimter assignment with \\n.");
+            }
+
+            numbers = numbers.Substring(i + 1).ToLower();
+
+            return newDelimiters.ToArray();
         }
     }
 }
