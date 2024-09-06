@@ -17,8 +17,8 @@ namespace Technical
                 return 0;
 
             // Potential delimiters
-            char[] delimiters = { ','};
-            
+            char[] delimiters = { ',', '\n' };
+
             int total = 0;
 
             foreach (var item in numbers.Split(delimiters))
