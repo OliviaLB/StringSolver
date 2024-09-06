@@ -25,6 +25,8 @@ namespace Technical
             }
 
             int total = 0;
+            List<int> negatives = [];
+
 
             foreach (var item in numbers.Split(delimiters))
             {
@@ -37,12 +39,26 @@ namespace Technical
                 // Try parsing the value into an integer.
                 if (int.TryParse(item, out int number))
                 {
-                    total += number;
+                    // Check for negative numbers
+                    if (number < 0)
+                    {
+                        negatives.Add(number);
+                    }
+                    else
+                    {
+                        total += number;
+                    }
                 }
                 else
                 {
                     throw new ArgumentException($"Invalid value: {item}");
                 }
+            }
+
+            // If any negative numbers were found, throw an exception
+            if (negatives.Count > 0)
+            {
+                throw new ArgumentException($"Negatives not allowed: {string.Join(", ", negatives)}");
             }
 
             return total;
