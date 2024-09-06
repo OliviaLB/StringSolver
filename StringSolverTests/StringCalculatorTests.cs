@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Shouldly;
 using Technical;
 
@@ -12,6 +11,20 @@ namespace StringSolverTests
             // Arrange
             string values = " ";
             int sum = 0;
+
+            // Act
+            var result = StringCalculator.Add(values);
+
+            // Assert
+            result.ShouldBe(sum);
+        }
+
+        [Fact]
+        public void Add_Receive1_ShouldReturn1()
+        {
+            // Arrange
+            string values = "1";
+            int sum = 1;
 
             // Act
             var result = StringCalculator.Add(values);
